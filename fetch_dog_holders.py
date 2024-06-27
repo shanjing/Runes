@@ -79,6 +79,15 @@ def main(start_rank, num_holders, api_key):
     print("Data saved to DOG_Holders.csv")
 
 if __name__ == "__main__":
+    # This script fetches and saves the top DOG Rune holders from the GeniiData API.
+    #
+    # Usage:
+    # python fetch_dog_holders.py <start_rank> <num_holders> <api_key>
+    #
+    # Example:
+    # python fetch_dog_holders.py 1 100 your_api_key_here
+    #
+    # To get a GeniiData general API key, visit https://geniidata.com and sign up for an account.
     if len(sys.argv) != 4:
         print("Usage: python fetch_dog_holders.py <start_rank> <num_holders> <api_key>")
         sys.exit(1)
