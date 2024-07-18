@@ -3,7 +3,7 @@ import pandas as pd
 import time
 import sys
 
-def fetch_holders(offset, api_key):
+def fetch_holders(offset, api_key='142cf1b0-1ca7-11ee-bb5e-9d74c2e854ac'):
     url = f'https://api.geniidata.com/api/1/runes/840000%3A3/holders?limit=20&offset={offset}'
     headers = {
         'accept': 'application/json',
@@ -88,10 +88,11 @@ if __name__ == "__main__":
     # python fetch_dog_holders.py 1 100 your_api_key_here
     #
     # To get a GeniiData general API key, visit https://geniidata.com and sign up for an account.
-    if len(sys.argv) != 4:
+    api_key = '142cf1b0-1ca7-11ee-bb5e-9d74c2e854ac'
+    if len(sys.argv) != 4 and not api_key:
         print("Usage: python fetch_dog_holders.py <start_rank> <num_holders> <api_key>")
         sys.exit(1)
     start_rank = int(sys.argv[1])
     num_holders = int(sys.argv[2])
-    api_key = sys.argv[3]
+    api_key = sys.argv[3] if not api_key else api_key
     main(start_rank, num_holders, api_key)
